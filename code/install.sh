@@ -6,21 +6,21 @@ PASSWORD=""
 EMAIL=""
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
-setup_code() {
+# setup_code() {
 
-	# set cleaner START
+# 	# set cleaner START
 
-	# set cleaner END
+# 	# set cleaner END
 
-	# get variables START
+# 	# get variables START
 
-	# get variables END
+# 	# get variables END
 
-	# prepare memory repository START
+# 	# prepare memory repository START
 
-	# prepare memory repository END
+# 	# prepare memory repository END
 
-}
+# }
 
 set_cleaner
 get_variables
