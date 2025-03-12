@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 SAVE_URL=""
 LOGIN=""
@@ -62,7 +62,7 @@ get_variables() {
 	printf "5) Enter your some email \033[0m"
 	printf "(\033[1;38;2;255;255;0mnot necessary\033[0m)\033[1;38;2;0;255;255m:\n"
 	printf "\033[1;38;2;255;0;0m"
-	printf "!!! I highly recommended entering real mail from "
+	printf "!!! I highly recommended entering real email from "
 	printf "\033[1;38;2;0;255;0mGITEA"
 	printf "\033[1;38;2;255;0;0m"
 	printf " !!!\n"
@@ -79,7 +79,6 @@ get_variables() {
 #                                                                                        |
 
 prepare_memory_repository() {
-
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
 	rm -rf /tmp/$LOGIN
@@ -90,16 +89,16 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	cp -f $SCRIPT_DIR/templates/* /tmp/$LOGIN
-
-	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/README.md
-	sed -i '' "s|<email>|$EMAIL|g" /tmp/$LOGIN/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/save.sh
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/lis.sh
+	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
+
+	sed -i '' "s|<user url>|$SAVE_URL|g" code/README.md
+	sed -i '' "s|<user>|$LOGIN|g"        code/README.md
+	sed -i '' "s|<email>|$EMAIL|g"       code/deploy.sh
+	sed -i '' "s|<user>|$LOGIN|g"        code/deploy.sh
+	sed -i '' "s|<user>|$LOGIN|g"        code/save.sh
+	sed -i '' "s|<user>|$LOGIN|g"        code/lis.sh
 
 	./deploy.sh
 	./save.sh
@@ -116,5 +115,5 @@ set_cleaner
 get_variables
 prepare_memory_repository
 
-printf "\n\033[1;38;2;0;255;0mLIS has been installed\033[0m\n\n"
+printf "\033[1;38;2;0;255;0mLIS has been installed\033[0m\n\n"
 exit 0

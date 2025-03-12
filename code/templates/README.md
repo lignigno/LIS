@@ -9,7 +9,7 @@
 ``` bash
 rm -rf /tmp/<user> && \
 git clone <user url> /tmp/<user> && \
-/tmp/<user>/deploy.sh && \
+/tmp/<user>/code/deploy.sh && \
 source ~/.zshrc
 ```
 
