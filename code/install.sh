@@ -81,6 +81,7 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
+	cd /tmp
 	rm -rf /tmp/$LOGIN
 	git clone $FINAL_URL /tmp/$LOGIN
 
@@ -101,7 +102,7 @@ prepare_memory_repository() {
 	sed -i '' "s|<user>|$LOGIN|g"        code/lis.sh
 
 	./deploy.sh
-	./save.sh
+	# ./save.sh
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
