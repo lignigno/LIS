@@ -9,10 +9,10 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 # ___________________________________________________________________________SUB FUNCTIONS
 
 set_cleaner() {
+	printf "$(pwd) point 1\n"
 	cd $SCRIPT_DIR
 	REP=$(git rev-parse --show-toplevel)
 	trap 'rm -rf "$REP"' EXIT
-	printf "$(pwd) point 1"
 }
 
 #                                                                                        |
@@ -74,7 +74,7 @@ get_variables() {
 	fi
 	printf "\033[0m"
 
-	printf "$(pwd) point 2"
+	printf "$(pwd) point 2\n"
 }
 
 #                                                                                        |
@@ -84,17 +84,17 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
-	printf "$(pwd) point 3"
+	printf "$(pwd) point 3\n"
 	cd /tmp
-	rm -rf /tmp/$LOGIN
-	git clone $FINAL_URL /tmp/$LOGIN
+	rm -rf ./$LOGIN
+	git clone $FINAL_URL ./$LOGIN
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
 		exit 1
 	fi
 
-	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	cp -rf $SCRIPT_DIR/templates/* ./$LOGIN
 
 	cd /tmp/$LOGIN
 
