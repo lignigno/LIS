@@ -12,6 +12,7 @@ set_cleaner() {
 	cd $SCRIPT_DIR
 	REP=$(git rev-parse --show-toplevel)
 	trap 'rm -rf "$REP"' EXIT
+	pwd
 }
 
 #                                                                                        |
@@ -72,6 +73,8 @@ get_variables() {
 		EMAIL="silentbob@mail.com"
 	fi
 	printf "\033[0m"
+
+	pwd
 }
 
 #                                                                                        |
@@ -81,7 +84,8 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
-	# cd /tmp
+	pwd
+	cd /tmp
 	rm -rf /tmp/$LOGIN
 	git clone $FINAL_URL /tmp/$LOGIN
 
@@ -113,7 +117,9 @@ prepare_memory_repository() {
 # _______________________________________________________________________________MAIN CODE
 
 set_cleaner
+pwd
 get_variables
+pwd
 prepare_memory_repository
 
 printf "\033[1;38;2;0;255;0mLIS has been installed\033[0m\n\n"
