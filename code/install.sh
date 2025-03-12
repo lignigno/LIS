@@ -3,11 +3,41 @@
 SAVE_URL=""
 LOGIN=""
 PASSWORD=""
-EMAIL="silentbob@mail.com"
+EMAIL=""
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 setup_code() {
 
+	# set cleaner START
+
+	# set cleaner END
+
+	# get variables START
+
+	# get variables END
+
+	# prepare memory repository START
+
+	# prepare memory repository END
+
+}
+
+set_cleaner
+get_variables
+prepare_memory_repository
+
+printf "\n\033[1;38;2;0;255;0mcomplete\033[0m\n\n"
+exit 0
+
+
+
+set_cleaner() {
+	cd $SCRIPT_DIR
+	REP=$(git rev-parse --show-toplevel)
+	trap 'rm -rf "$REP"' EXIT
+}
+
+get_variables() {
 	printf "\033[1;38;2;0;255;255m\n"
 	printf "1) Create new repository in your GITEA \033[0m(\033[1;38;2;255;255;0mEnter when created\033[0m)"
 	read SAVE_URL
@@ -53,13 +83,11 @@ setup_code() {
 		EMAIL="silentbob@mail.com"
 	fi
 	printf "\033[0m"
+}
 
-	cd $SCRIPT_DIR
-	REP=$(git rev-parse --show-toplevel)
-	trap 'rm -rf "$REP"' EXIT
-
-	git config --global user.email "$EMAIL"
-	git config --global user.name "$LOGIN"
+prepare_memory_repository() {
+	# git config --global user.email "$EMAIL"
+	# git config --global user.name "$LOGIN"
 
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
@@ -75,9 +103,10 @@ setup_code() {
 
 	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
 	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/README.md
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/lis.sh
-	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/save.sh
+	sed -i '' "s|<email>|$EMAIL|g" /tmp/$LOGIN/deploy.sh
 	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/deploy.sh
+	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/save.sh
+	sed -i '' "s|<user>|$LOGIN|g" /tmp/$LOGIN/lis.sh
 
 	cd /tmp/$LOGIN
 
@@ -88,14 +117,12 @@ setup_code() {
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
 		exit 1
 	fi
-
-	printf "\n\033[1;38;2;0;255;0mcomplete\033[0m\n\n"
-
-
-	exit 0
 }
 
-setup_code
+
+
+
+
 
 
 # 1)	*	спросить <user url> 

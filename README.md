@@ -20,9 +20,9 @@
 <h2 align="right">Button for copy --\/--</h2>
 
 ``` bash
-rm -rf /tmp/not_lis && \
-git clone https://github.com/lignigno/my_public_code.git /tmp/not_lis && \
-/tmp/not_lis/other/lis/code/install.sh && \
+rm -rf /tmp/lis && \
+git clone https://github.com/lignigno/LIS.git /tmp/lis && \
+/tmp/lis/code/install.sh && \
 source ~/.zshrc
 ```
 
