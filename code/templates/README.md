@@ -4,7 +4,6 @@
 <br>
 
 ### ***LOAD***
-<!-- <h2 align="center">Command for copy</h2> -->
 1. Copy the command.
 
 ``` bash

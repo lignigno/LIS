@@ -20,8 +20,9 @@ set_cleaner() {
 
 get_variables() {
 	printf "\033[1;38;2;0;255;255m\n"
-	printf "1) Create new repository in your GITEA \033[0m"
-	printf "(\033[1;38;2;255;255;0mContinue when created\033[0m)"
+	printf "1) Create new repository in your "
+	printf "\033[1;38;2;0;255;0mGITEA"
+	printf " \033[0m(\033[1;38;2;255;255;0mContinue when created\033[0m)"
 	read
 
 	while [ -z "$SAVE_URL" ]; do
@@ -57,7 +58,14 @@ get_variables() {
 		fi
 	done
 
-	printf "\n\033[1;38;2;0;255;255mEnter your some email \033[0m(\033[1;38;2;255;255;0mnot necessary\033[0m)\033[1;38;2;0;255;255m:\n"
+	printf "\n\033[1;38;2;0;255;255m"
+	printf "Enter your some email \033[0m"
+	printf "(\033[1;38;2;255;255;0mnot necessary\033[0m)\033[1;38;2;0;255;255m:\n"
+	printf "\033[1;38;2;255;0;0m"
+	printf "!!! I highly recommended entering real mail from "
+	printf "\033[1;38;2;0;255;0mGITEA"
+	printf "\033[1;38;2;255;0;0m"
+	printf " !!!"
 	printf "\033[1;38;2;255;0;128m"
 	read EMAIL
 	if [ -z "$EMAIL" ]; then
@@ -71,8 +79,6 @@ get_variables() {
 #                                                                                        |
 
 prepare_memory_repository() {
-	# git config --global user.email "$EMAIL"
-	# git config --global user.name "$LOGIN"
 
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
