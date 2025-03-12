@@ -79,12 +79,7 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	printf "==============\n"
-	ls /tmp/$LOGIN
-	printf "==============\n"
-	cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
-	printf "==============\n"
-	ls /tmp/$LOGIN
+	rsync -aq --delete $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
