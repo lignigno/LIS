@@ -6,21 +6,7 @@ PASSWORD=""
 EMAIL=""
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
-# setup_code() {
-
-# 	# set cleaner START
-
-# 	# set cleaner END
-
-# 	# get variables START
-
-# 	# get variables END
-
-# 	# prepare memory repository START
-
-# 	# prepare memory repository END
-
-# }
+# ___________________________________________________________________________SUB FUNCTIONS
 
 set_cleaner
 get_variables
@@ -39,9 +25,11 @@ set_cleaner() {
 
 get_variables() {
 	printf "\033[1;38;2;0;255;255m\n"
-	printf "1) Create new repository in your GITEA \033[0m(\033[1;38;2;255;255;0mEnter when created\033[0m)"
-	read SAVE_URL
-	SAVE_URL=""
+	printf "1) Create new repository in your GITEA \033[0m"
+	printf "(\033[1;38;2;255;255;0mContinue when created\033[0m)"
+	read
+	# read SAVE_URL
+	# SAVE_URL=""
 
 	while [ -z "$SAVE_URL" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
@@ -118,6 +106,8 @@ prepare_memory_repository() {
 		exit 1
 	fi
 }
+
+# _______________________________________________________________________________MAIN CODE
 
 
 
