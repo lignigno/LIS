@@ -2,6 +2,9 @@
 
 cd /tmp/<user>
 
+git config --global user.email <email>
+git config --global user.name <user>
+
 git add . > /tmp/null
 git commit -m "save" > /tmp/null
 git push > /tmp/null

@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-git config --global user.email <email>
-git config --global user.name <user>
-
 echo "alias lis=\"/tmp/<user>/lis.sh\"" >> ~/.zshrc
 
 printf "\033[1;38;2;0;255;255m"

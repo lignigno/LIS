@@ -23,8 +23,6 @@ get_variables() {
 	printf "1) Create new repository in your GITEA \033[0m"
 	printf "(\033[1;38;2;255;255;0mContinue when created\033[0m)"
 	read
-	# read SAVE_URL
-	# SAVE_URL=""
 
 	while [ -z "$SAVE_URL" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
