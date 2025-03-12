@@ -17,9 +17,16 @@ source ~/.zshrc
 2. Paste it into the terminal.
 
 ### ***SAVE***
-> lis
 
-> lis save
+``` bash
+lis
+```
+
+``` bash
+lis save
+```
 
 ### ***LOGOUT***
-> lis logout
+``` bash
+lis logout
+```
