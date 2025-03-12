@@ -8,20 +8,15 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
-set_cleaner
-get_variables
-prepare_memory_repository
-
-printf "\n\033[1;38;2;0;255;0mcomplete\033[0m\n\n"
-exit 0
-
-
-
 set_cleaner() {
 	cd $SCRIPT_DIR
 	REP=$(git rev-parse --show-toplevel)
 	trap 'rm -rf "$REP"' EXIT
 }
+
+#                                                                                        |
+# ---------------------------------------------------------------------------------------|
+#                                                                                        |
 
 get_variables() {
 	printf "\033[1;38;2;0;255;255m\n"
@@ -73,6 +68,10 @@ get_variables() {
 	printf "\033[0m"
 }
 
+#                                                                                        |
+# ---------------------------------------------------------------------------------------|
+#                                                                                        |
+
 prepare_memory_repository() {
 	# git config --global user.email "$EMAIL"
 	# git config --global user.name "$LOGIN"
@@ -109,42 +108,9 @@ prepare_memory_repository() {
 
 # _______________________________________________________________________________MAIN CODE
 
+set_cleaner
+get_variables
+prepare_memory_repository
 
-
-
-
-
-
-# 1)	*	спросить <user url> 
-# 2)	*	спросить никнейм <user>
-# 3)		спросить почту (по умолчанию silentbob@mail.com)
-# 4)		сразу сделать гит клон с созданием ридми и закидыванием
-#			скрипта деплоя который по умолчанию должен говорить что он не настроен и
-# 			скрипта настройки если пользователь захочет перенастроить
-# 
-# 
-# 
-# 
-# 
-
-# draft
-# 
-# git clone <user url> /tmp/<user> && \
-# echo "tmp/<user>/deploy.sh"
-# 
-# 
-# предлагать ставить o my zsh
-# 
-# 
-# in lis code dir :
-#	- install.sh
-#	- menuconfig.sh
-#	- templates/
-#		- deploy.sh
-# 		- save.sh
-# 
-# сначало сделать
-# 	ридми
-# 	скрипт развёртывания
-#
-#
+printf "\n\033[1;38;2;0;255;0mcomplete\033[0m\n\n"
+exit 0
