@@ -8,18 +8,6 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
-set_cleaner() {
-	printf "$(pwd) point 1\n"
-	cd $SCRIPT_DIR
-	REP=$(git rev-parse --show-toplevel)
-	ls /tmp/
-	trap 'rm -rf "$REP"' EXIT
-}
-
-#                                                                                        |
-# ---------------------------------------------------------------------------------------|
-#                                                                                        |
-
 get_variables() {
 	printf "\033[1;38;2;0;255;255m\n"
 	printf "1) Create new repository in your "
@@ -85,7 +73,7 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
-	printf "$(pwd) point 3\n"
+	# printf "$(pwd) point 3\n"
 	cd /tmp
 	rm -rf /tmp/$LOGIN
 	git clone $FINAL_URL /tmp/$LOGIN
@@ -118,11 +106,10 @@ prepare_memory_repository() {
 
 # _______________________________________________________________________________MAIN CODE
 
-set_cleaner
-ls /tmp/
-pwd
+cd $SCRIPT_DIR
+REP=$(git rev-parse --show-toplevel)
+trap 'rm -rf "$REP"' EXIT
 get_variables
-pwd
 prepare_memory_repository
 
 printf "\033[1;38;2;0;255;0mLIS has been installed\033[0m\n\n"
