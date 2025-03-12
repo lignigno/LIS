@@ -65,7 +65,7 @@ get_variables() {
 	printf "!!! I highly recommended entering real mail from "
 	printf "\033[1;38;2;0;255;0mGITEA"
 	printf "\033[1;38;2;255;0;0m"
-	printf " !!!"
+	printf " !!!\n"
 	printf "\033[1;38;2;255;0;128m"
 	read EMAIL
 	if [ -z "$EMAIL" ]; then

@@ -15,9 +15,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-printf "\033[1;38;2;255;0;128m"
+printf "\033[1;38;2;0;255;255m\n"
 printf "saved"
 printf "\033[1;38;2;255;255;0m"
-printf " :)\n"
-printf "\033[1;38;2;255;0;128m"
-printf "will be soon\033[0m\n"
+printf " :)\033[0m"
