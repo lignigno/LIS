@@ -12,7 +12,7 @@ set_cleaner() {
 	cd $SCRIPT_DIR
 	REP=$(git rev-parse --show-toplevel)
 	trap 'rm -rf "$REP"' EXIT
-	pwd
+	printf "$(pwd) point 1"
 }
 
 #                                                                                        |
@@ -74,7 +74,7 @@ get_variables() {
 	fi
 	printf "\033[0m"
 
-	pwd
+	printf "$(pwd) point 2"
 }
 
 #                                                                                        |
@@ -84,7 +84,7 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
-	pwd
+	printf "$(pwd) point 3"
 	cd /tmp
 	rm -rf /tmp/$LOGIN
 	git clone $FINAL_URL /tmp/$LOGIN
