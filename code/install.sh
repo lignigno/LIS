@@ -84,7 +84,7 @@ prepare_memory_repository() {
 	echo "================"
 	ls -alp /tmp/$LOGIN
 	echo "================"
-	rsync -aq --delete $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	rsync -a --delete $SCRIPT_DIR/templates/* /tmp/$LOGIN
 	echo "================"
 	ls -alp $SCRIPT_DIR/templates/
 	echo "================"
