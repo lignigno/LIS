@@ -86,18 +86,19 @@ prepare_memory_repository() {
 
 	printf "$(pwd) point 3\n"
 	cd /tmp
-	rm -rf ./$LOGIN
-	git clone $FINAL_URL ./$LOGIN
+	rm -rf /tmp/$LOGIN
+	git clone $FINAL_URL /tmp/$LOGIN
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
 		exit 1
 	fi
 
-	cp -rf $SCRIPT_DIR/templates/* ./$LOGIN
+	ls $SCRIPT_DIR/
+	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
-
+	ls
 	sed -i '' "s|<user url>|$SAVE_URL|g" code/README.md
 	sed -i '' "s|<user>|$LOGIN|g"        code/README.md
 	sed -i '' "s|<email>|$EMAIL|g"       code/deploy.sh
