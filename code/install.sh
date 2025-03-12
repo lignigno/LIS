@@ -116,5 +116,5 @@ set_cleaner
 get_variables
 prepare_memory_repository
 
-printf "\n\033[1;38;2;0;255;0mcomplete\033[0m\n\n"
+printf "\n\033[1;38;2;0;255;0mLIS has been installed\033[0m\n\n"
 exit 0
