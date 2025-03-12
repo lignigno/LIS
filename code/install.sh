@@ -38,7 +38,7 @@ get_variables() {
 
 	while [ -z "$LOGIN" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
-		printf "Enter your \033[38;2;0;255;0mlogin\033[38;2;0;255;255m:\n"
+		printf "3) Enter your \033[38;2;0;255;0mlogin\033[38;2;0;255;255m:\n"
 		printf "\033[1;38;2;255;0;128m"
 		read LOGIN
 		if [ -z "$LOGIN" ]; then
@@ -49,7 +49,7 @@ get_variables() {
 
 	while [ -z "$PASSWORD" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
-		printf "Enter your \033[38;2;255;0;0mpassword\033[38;2;0;255;255m:\n"
+		printf "4) Enter your \033[38;2;255;0;0mpassword\033[38;2;0;255;255m:\n"
 		printf "\033[1;38;2;255;0;128m"
 		read -s PASSWORD
 		if [ -z "$PASSWORD" ]; then
@@ -59,7 +59,7 @@ get_variables() {
 	done
 
 	printf "\n\033[1;38;2;0;255;255m"
-	printf "Enter your some email \033[0m"
+	printf "5) Enter your some email \033[0m"
 	printf "(\033[1;38;2;255;255;0mnot necessary\033[0m)\033[1;38;2;0;255;255m:\n"
 	printf "\033[1;38;2;255;0;0m"
 	printf "!!! I highly recommended entering real mail from "
