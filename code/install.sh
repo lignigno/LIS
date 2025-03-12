@@ -12,6 +12,7 @@ set_cleaner() {
 	printf "$(pwd) point 1\n"
 	cd $SCRIPT_DIR
 	REP=$(git rev-parse --show-toplevel)
+	ls /tmp/
 	trap 'rm -rf "$REP"' EXIT
 }
 
@@ -118,6 +119,7 @@ prepare_memory_repository() {
 # _______________________________________________________________________________MAIN CODE
 
 set_cleaner
+ls /tmp/
 pwd
 get_variables
 pwd
