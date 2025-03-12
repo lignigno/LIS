@@ -79,8 +79,8 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	ls $SCRIPT_DIR/
-	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	printf "==============\n"
+	cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
