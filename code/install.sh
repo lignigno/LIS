@@ -62,8 +62,6 @@ get_variables() {
 		EMAIL="silentbob@mail.com"
 	fi
 	printf "\033[0m"
-
-	printf "$(pwd) point 2\n"
 }
 
 #                                                                                        |
@@ -87,9 +85,8 @@ prepare_memory_repository() {
 	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
-	ls
-	sed -i '' "s|<user url>|$SAVE_URL|g" code/README.md
-	sed -i '' "s|<user>|$LOGIN|g"        code/README.md
+	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
+	sed -i '' "s|<user>|$LOGIN|g"        README.md
 	sed -i '' "s|<email>|$EMAIL|g"       code/deploy.sh
 	sed -i '' "s|<user>|$LOGIN|g"        code/deploy.sh
 	sed -i '' "s|<user>|$LOGIN|g"        code/save.sh
