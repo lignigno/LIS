@@ -71,8 +71,6 @@ get_variables() {
 prepare_memory_repository() {
 	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
 
-	# printf "$(pwd) point 3\n"
-	cd /tmp
 	rm -rf /tmp/$LOGIN
 	git clone $FINAL_URL /tmp/$LOGIN
 
