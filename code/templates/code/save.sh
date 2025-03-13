@@ -4,13 +4,9 @@
 # END
 
 PROJECT_DIR=/tmp/<user>
-# PROJECT_DIR=/tmp
 SAVE_DIR=$PROJECT_DIR/save
-# SAVE_DIR="/tmp/test"
 
 DIRS=($(find ~ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
-DEFAULT_DIRS=()
-USER_DIRS=()
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
@@ -45,13 +41,16 @@ send_to_repository() {
 	git config --global user.email "<email>"
 	git config --global user.name "<user>"
 
+	echo "================="
 	git add . > /tmp/null
 	git commit -m "save" > /tmp/null
 	git push > /tmp/null
 
 	rm -rf /tmp/null
 
+	echo "================="
 	if [ $? -ne 0 ]; then
+		printf "\n\033[1;38;2;255;0;0mNOT SAVED\033[0m\n\n"
 		exit 1
 	fi
 }
