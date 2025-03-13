@@ -79,31 +79,11 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	printf "================\n"
-	# TMP=$(ls -ap /tmp/$LOGIN)
-	# TMP=$(echo "$TMP" | grep -v '\.git/')
-	# TMP=$(echo "$TMP" | grep -v '\./')
-	# TMP=$(echo "$TMP" | grep -v '\.\./')
-
-	# RESULT=""
-	# for item in $TMP; do
-	# 	RESULT+="/tmp/$LOGIN/$item "
-	# done
-
-	# echo $RESULT | xargs rm -rfv
-
-
 	cd /tmp/$LOGIN
 	echo $(ls -A) | xargs rm -rf
 
-	ls -alp /tmp/$LOGIN
-	printf "================\n"
-
 	cd $SCRIPT_DIR/templates
 	echo $(ls -A) /tmp/$LOGIN | xargs cp -rf
-
-	ls -alp /tmp/$LOGIN
-	printf "================\n"
 
 	# git add . && git commit -m "try" && git push 
 
