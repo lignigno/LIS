@@ -81,7 +81,8 @@ prepare_memory_repository() {
 
 	rm -rfv $(ls -ap | grep -v '.git/' | grep -v './' | grep -v '../')
 	cp -rf $SCRIPT_DIR/templates /tmp/$LOGIN
-	exit 0
+
+	ls -alp /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
