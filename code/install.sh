@@ -80,40 +80,28 @@ prepare_memory_repository() {
 	fi
 
 	printf "================\n"
-	TMP=$(ls -ap /tmp/$LOGIN)
-	TMP=$(echo "$TMP" | grep -v '\.git/')
-	TMP=$(echo "$TMP" | grep -v '\./')
-	TMP=$(echo "$TMP" | grep -v '\.\./')
+	# TMP=$(ls -ap /tmp/$LOGIN)
+	# TMP=$(echo "$TMP" | grep -v '\.git/')
+	# TMP=$(echo "$TMP" | grep -v '\./')
+	# TMP=$(echo "$TMP" | grep -v '\.\./')
 
-	RESULT=""
-	for item in $TMP; do
-		RESULT+="/tmp/$LOGIN/$item "
-	done
+	# RESULT=""
+	# for item in $TMP; do
+	# 	RESULT+="/tmp/$LOGIN/$item "
+	# done
 
-	echo $RESULT | xargs rm -rfv
+	# echo $RESULT | xargs rm -rfv
+
+
+	cd /tmp/$LOGIN
+	echo $(ls -A) | xargs rm -rf
 
 	ls -alp /tmp/$LOGIN
 	printf "================\n"
 
-	TMP=$(ls -ap $SCRIPT_DIR/templates)
-	TMP=$(echo "$TMP" | grep -v '\.git/')
-	TMP=$(echo "$TMP" | grep -v '\./')
-	TMP=$(echo "$TMP" | grep -v '\.\./')
+	cd $SCRIPT_DIR/templates
+	echo $(ls -A) /tmp/$LOGIN | xargs cp -rf
 
-	RESULT=""
-	for item in $TMP; do
-		RESULT+="$SCRIPT_DIR/templates/$item "
-	done
-
-	echo $RESULT
-	printf "================\n"
-	# echo $RESULT /tmp/$LOGIN | xargs cp -rfv
-
-	cp -rfv $SCRIPT_DIR/templates/* $SCRIPT_DIR/templates/\.* /tmp/$LOGIN
-
-	# $(ls -ap $SCRIPT_DIR/templates | grep -v '\.git/' | grep -v '\./' | grep -v '\.\./')
-	# cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
-	# echo $(ls -ap $SCRIPT_DIR/templates | grep -v '\.git/' | grep -v '\./' | grep -v '\.\./') | xargs -I {} cp -rfv "$SCRIPT_DIR/templates/{}" /tmp/$LOGIN/
 	ls -alp /tmp/$LOGIN
 	printf "================\n"
 
