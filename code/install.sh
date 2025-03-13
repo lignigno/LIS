@@ -85,7 +85,7 @@ prepare_memory_repository() {
 	for i in "${FOR_COPY[@]}"; do
 		new_name+=("$(printf $SCRIPT_DIR/templates)/$i")
 	done
-	cp -rf $new_name /tmp/$LOGIN
+	cp -rfv $new_name /tmp/$LOGIN
 	ls -alp /tmp/$LOGIN
 	exit 0
 
