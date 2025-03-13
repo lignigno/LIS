@@ -85,12 +85,12 @@ prepare_memory_repository() {
 	ls -alp /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
-	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
-	sed -i '' "s|<user>|$LOGIN|g"        README.md
-	sed -i '' "s|<email>|$EMAIL|g"       code/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g"        code/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g"        code/save.sh
-	sed -i '' "s|<user>|$LOGIN|g"        code/lis.sh
+	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
+	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/README.md
+	sed -i '' "s|<email>|$EMAIL|g"       /tmp/$LOGIN/code/deploy.sh
+	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/deploy.sh
+	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/save.sh
+	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/lis.sh
 
 	./deploy.sh
 	# ./save.sh
