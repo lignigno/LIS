@@ -80,7 +80,7 @@ prepare_memory_repository() {
 	fi
 
 	rm -rfv $(ls -ap | grep -v '.git/' | grep -v './' | grep -v '../')
-	cp -rf $SCRIPT_DIR/templates
+	cp -rf $SCRIPT_DIR/templates /tmp/$LOGIN
 	exit 0
 
 	cd /tmp/$LOGIN
