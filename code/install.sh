@@ -87,7 +87,6 @@ prepare_memory_repository() {
 
 	# git add . && git commit -m "try" && git push 
 
-	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
 	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/README.md
 	sed -i '' "s|<email>|$EMAIL|g"       /tmp/$LOGIN/code/deploy.sh
@@ -95,8 +94,8 @@ prepare_memory_repository() {
 	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/save.sh
 	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/lis.sh
 
-	./deploy.sh
-	# ./save.sh
+	/tmp/$LOGIN/code/deploy.sh
+	/tmp/$LOGIN/code/save.sh
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
