@@ -79,7 +79,7 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	rm -rfv $(ls -ap | grep -v '.git/' | grep -v './' | grep -v '../')
+	rm -rfv $(ls -ap /tmp/$LOGIN | grep -v '.git/' | grep -v './' | grep -v '../')
 	cp -rf $SCRIPT_DIR/templates /tmp/$LOGIN
 
 	ls -alp /tmp/$LOGIN
