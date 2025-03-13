@@ -107,8 +107,6 @@ prepare_memory_repository() {
 
 	# git add . && git commit -m "try" && git push 
 
-	exit 0
-
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
 	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/README.md
