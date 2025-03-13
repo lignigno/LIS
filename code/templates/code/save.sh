@@ -42,6 +42,7 @@ send_to_repository() {
 	git config --global user.name "<user>"
 
 	echo "================="
+	ls 
 	git add . > /tmp/null
 	git commit -m "save" > /tmp/null
 	git push > /tmp/null
@@ -64,7 +65,7 @@ fi
 cd ~
 
 save_home_files
-save_dirs
+# save_dirs
 
 send_to_repository
 
