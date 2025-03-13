@@ -45,7 +45,6 @@ get_existing_default_dirs() {
 #                                                                                        |
 
 save_default_dirs() {
-
 	for dir in "${DEFAULT_DIRS[@]}"; do
 		if [[ "$dir" == "Library" ]]; then
 			rsync -aq --delete --exclude='Trial' ~/$dir $SAVE_DIR

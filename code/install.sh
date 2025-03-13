@@ -79,7 +79,8 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	rm -rf $(find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +)
+	cp -rf $(find $SCRIPT_DIR/templates -mindepth 1 -not -name 'save') /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
@@ -103,6 +104,7 @@ prepare_memory_repository() {
 cd $SCRIPT_DIR
 REP=$(git rev-parse --show-toplevel)
 trap 'rm -rf "$REP"' EXIT
+
 get_variables
 prepare_memory_repository
 
