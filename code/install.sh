@@ -109,7 +109,7 @@ prepare_memory_repository() {
 	printf "================\n"
 	# echo $RESULT /tmp/$LOGIN | xargs cp -rfv
 
-	cp -rfv $SCRIPT_DIR/templates/* $SCRIPT_DIR/templates/.* /tmp/$LOGIN
+	cp -rfv $SCRIPT_DIR/templates/* $SCRIPT_DIR/templates/\.* /tmp/$LOGIN
 
 	# $(ls -ap $SCRIPT_DIR/templates | grep -v '\.git/' | grep -v '\./' | grep -v '\.\./')
 	# cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
