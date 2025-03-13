@@ -80,7 +80,7 @@ prepare_memory_repository() {
 	fi
 
 	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
-	cp -rf $(find code/templates/* -exec basename {} \;) /tmp/$LOGIN
+	cp -rf $(find $SCRIPT_DIR/templates/* -exec basename {} \;) /tmp/$LOGIN
 	ls -alp /tmp/$LOGIN
 	exit 0
 
