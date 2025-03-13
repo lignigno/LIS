@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_SCRIPTS_DIR="/tmp/<user>/code"
+LIS_SCRIPTS_DIR="/Users/Guest/Desktop/LIS/code/templates/code"
 
 EXIST_COMMANDS=( $(find "$LIS_SCRIPTS_DIR" -type f -name "*.sh" ! -name "deploy.sh" ! -name "lis.sh" -exec basename {} .sh \;) )
 COMMAND="save"
@@ -10,18 +10,17 @@ COMMAND="save"
 is_command() {
 	for cmd in "${EXIST_COMMANDS[@]}"; do
 		if [ "$1" == "$cmd" ]; then
-			return true
+			return 0
 		fi
 	done
 
-	return false
+	return 1
 }
 
 # _______________________________________________________________________________MAIN CODE
 
 if [ $# -gt 0 ]; then
 	if is_command "$1"; then
-		printf "correct command\n"
 		COMMAND=$1
 	else
 		printf "\033[1;38;2;255;0;0m\n"
@@ -29,7 +28,7 @@ if [ $# -gt 0 ]; then
 		printf "exist commands :\n\n"
 
 		for cmd in "${EXIST_COMMANDS[@]}"; do
-			printf "-> $cmd\n"
+			printf " --> $cmd\n"
 		done
 		printf "\n"
 
@@ -37,4 +36,4 @@ if [ $# -gt 0 ]; then
 	fi
 fi
 
-$LIS_SCRIPTS_DIR/$COMMAND.sh
+# $LIS_SCRIPTS_DIR/$COMMAND.sh
