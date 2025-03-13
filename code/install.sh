@@ -80,7 +80,7 @@ prepare_memory_repository() {
 	fi
 
 	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
-	cp -rf $(find $SCRIPT_DIR/templates) /tmp/$LOGIN
+	cp -rf $(find $SCRIPT_DIR/templates/*) /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md
