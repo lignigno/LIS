@@ -65,7 +65,7 @@ fi
 cd ~
 
 save_home_files
-# save_dirs
+save_dirs
 
 send_to_repository
 
