@@ -79,15 +79,8 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
-
-	ls -alp $SCRIPT_DIR/templates
-	FOR_COPY=($(find $SCRIPT_DIR/templates -maxdepth 1 -not -name 'templates' -exec basename {} \;))
-	for i in "${FOR_COPY[@]}"; do
-		new_name+=("$(printf $SCRIPT_DIR/templates)/$i")
-	done
-	cp -rfv $new_name /tmp/$LOGIN
-	ls -alp /tmp/$LOGIN
+	rm -rfv $(ls -ap | grep -v '.git/' | grep -v './' | grep -v '../')
+	cp -rf $SCRIPT_DIR/templates
 	exit 0
 
 	cd /tmp/$LOGIN
