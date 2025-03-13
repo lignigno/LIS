@@ -79,10 +79,13 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
+	printf "================\n"
 	rm -rfv $(ls -ap /tmp/$LOGIN | grep -v '.git/' | grep -v './' | grep -v '../')
-	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
-
 	ls -alp /tmp/$LOGIN
+	printf "================\n"
+	cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	ls -alp /tmp/$LOGIN
+	printf "================\n"
 
 	exit 0
 
