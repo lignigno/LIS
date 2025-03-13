@@ -81,7 +81,7 @@ prepare_memory_repository() {
 
 	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
 
-	FOR_COPY=($(find code/templates -maxdepth 1 -not -name 'templates' -exec basename {} \;))
+	FOR_COPY=($(find $SCRIPT_DIR/templates -maxdepth 1 -not -name 'templates' -exec basename {} \;))
 	for i in "${FOR_COPY[@]}"; do
 		new_name+=("$(printf $SCRIPT_DIR/templates)/$i")
 	done
