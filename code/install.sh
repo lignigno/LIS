@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 SAVE_URL=""
 LOGIN=""
@@ -79,16 +79,8 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	echo "================"
-	ls -alp $SCRIPT_DIR/templates/
-	echo "================"
-	ls -alp /tmp/$LOGIN
-	echo "================"
-	rsync -av --delete --recursive $SCRIPT_DIR/templates/* /tmp/$LOGIN
-	echo "================"
-	ls -alp $SCRIPT_DIR/templates/
-	echo "================"
-	ls -alp /tmp/$LOGIN
+	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
+	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
 	sed -i '' "s|<user url>|$SAVE_URL|g" README.md

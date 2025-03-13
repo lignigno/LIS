@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 LIS_SCRIPTS_DIR="/tmp/<user>/code"
 

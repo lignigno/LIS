@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "alias lis=\"/tmp/<user>/code/lis.sh\"" >> ~/.zshrc
 
