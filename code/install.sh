@@ -79,7 +79,6 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	find /tmp/$LOGIN -mindepth 1 -not -name 'save' -exec rm -rf {} +
 	cp -rf $SCRIPT_DIR/templates/* /tmp/$LOGIN
 
 	cd /tmp/$LOGIN
