@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_SCRIPTS_DIR="/Users/Guest/Desktop/LIS/code/templates/code"
+LIS_SCRIPTS_DIR="/tmp/<user>/code"
 
 EXIST_COMMANDS=( $(find "$LIS_SCRIPTS_DIR" -type f -name "*.sh" ! -name "deploy.sh" ! -name "lis.sh" -exec basename {} .sh \;) )
 COMMAND="save"
@@ -36,4 +36,4 @@ if [ $# -gt 0 ]; then
 	fi
 fi
 
-# $LIS_SCRIPTS_DIR/$COMMAND.sh
+$LIS_SCRIPTS_DIR/$COMMAND.sh
