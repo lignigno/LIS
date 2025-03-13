@@ -41,15 +41,14 @@ send_to_repository() {
 	git config --global user.email "<email>"
 	git config --global user.name "<user>"
 
-	echo "================="
-	ls 
+	echo "=====[ SAVING ]=====" 
 	git add . > /tmp/null
 	git commit -m "save" > /tmp/null
 	git push > /tmp/null
 
 	rm -rf /tmp/null
 
-	echo "================="
+	echo "===================="
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mNOT SAVED\033[0m\n\n"
 		exit 1

@@ -80,7 +80,7 @@ prepare_memory_repository() {
 	fi
 
 	cd /tmp/$LOGIN
-	rm -rfv $(ls -Ap /tmp/$LOGIN | grep -v '.git/')
+	rm -rf $(ls -Ap /tmp/$LOGIN | grep -v '.git/')
 	# echo $(ls -A) | xargs rm -rf
 
 	cd $SCRIPT_DIR/templates

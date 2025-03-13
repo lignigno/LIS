@@ -29,7 +29,7 @@ if [ $# -gt 0 ]; then
 		printf "exist commands :\n\n"
 
 		for cmd in "${EXIST_COMMANDS[@]}"; do
-			printf "- $cmd\n"
+			printf "-> $cmd\n"
 		done
 		printf "\n"
 
