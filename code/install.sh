@@ -80,12 +80,39 @@ prepare_memory_repository() {
 	fi
 
 	printf "================\n"
-	rm -rfv $(ls -ap /tmp/$LOGIN | grep -v '.git/' | grep -v './' | grep -v '../')
+	TMP=$(ls -ap /tmp/$LOGIN)
+	TMP=$(echo "$TMP" | grep -v '\.git/')
+	TMP=$(echo "$TMP" | grep -v '\./')
+	TMP=$(echo "$TMP" | grep -v '\.\./')
+
+	RESULT=""
+	for item in $TMP; do
+		RESULT+="/tmp/$LOGIN/$item "
+	done
+
+	echo $RESULT | xargs rm -rfv
+
 	ls -alp /tmp/$LOGIN
 	printf "================\n"
-	cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
+
+	TMP=$(ls -ap $SCRIPT_DIR/templates)
+	TMP=$(echo "$TMP" | grep -v '\.git/')
+	TMP=$(echo "$TMP" | grep -v '\./')
+	TMP=$(echo "$TMP" | grep -v '\.\./')
+
+	RESULT=""
+	for item in $TMP; do
+		RESULT+="$SCRIPT_DIR/templates/$item "
+	done
+
+	echo $RESULT /tmp/$LOGIN | xargs rm -rfv
+	# $(ls -ap $SCRIPT_DIR/templates | grep -v '\.git/' | grep -v '\./' | grep -v '\.\./')
+	# cp -rfv $SCRIPT_DIR/templates/* /tmp/$LOGIN
+	# echo $(ls -ap $SCRIPT_DIR/templates | grep -v '\.git/' | grep -v '\./' | grep -v '\.\./') | xargs -I {} cp -rfv "$SCRIPT_DIR/templates/{}" /tmp/$LOGIN/
 	ls -alp /tmp/$LOGIN
 	printf "================\n"
+
+	# git add . && git commit -m "try" && git push 
 
 	exit 0
 
