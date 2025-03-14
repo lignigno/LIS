@@ -35,6 +35,7 @@ lis update
 
 > [!CAUTION]
 > Logout using the "lis logout" command in the terminal to avoid information leakage.  
+>  
 > Делайте логаут с помощью команды в терминале "lis logout", чтобы избежать утечки информации.
 
 <br>
