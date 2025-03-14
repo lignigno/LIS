@@ -7,7 +7,7 @@
 
 ``` bash
 rm -rf /tmp/<user> && \
-git clone <user url> /tmp/<user> && \
+git clone <user_url> /tmp/<user> && \
 /tmp/<user>/code/deploy.sh && \
 source ~/.zshrc
 ```
@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.lignigno.0.1
+INSTALLED VERSION : 0.lignigno.1.0

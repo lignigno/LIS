@@ -3,7 +3,7 @@
 # <global_update>.<author>.<mini_update>.<tic_counts>
 # 
 # <global_update>
-# увеличивается тимлидом при необходиости
+# увеличивается тимлидом при необходиости перед глобальным обновлением
 # если увеличилось обнулить <mini_update> и <tic_counts>
 # 
 # <author>
@@ -18,7 +18,7 @@
 # <tic_counts>
 # увеличивать после каждого запуска или пуша
 
-LIS_VERSION="0.lignigno.0.2"
+LIS_VERSION="0.lignigno.1.0"
 LIS_TMPL_README="./templates/README.md"
 LIS_TMPL_UPDATE="./templates/code/update.sh"
 LIS_MAIN_README="../README.md"

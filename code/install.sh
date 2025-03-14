@@ -79,14 +79,13 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
-	# TODO : maybe good replace .git on \.git
 	cd /tmp/$LIS_LOGIN
 	rm -rf $(ls -Ap /tmp/$LIS_LOGIN | grep -v '.git/')
 
 	cd $LIS_SCRIPT_DIR/templates
 	echo $(ls -A) /tmp/$LIS_LOGIN | xargs cp -rf
 
-	sed -i '' "s|<user url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/README.md
+	sed -i '' "s|<user_url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/README.md
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/README.md
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/deploy.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/help.sh
@@ -94,6 +93,7 @@ prepare_memory_repository() {
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/logout.sh
 	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/save.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/save.sh
+	sed -i '' "s|<user_url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/code/update.sh
 	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/update.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/update.sh
 
