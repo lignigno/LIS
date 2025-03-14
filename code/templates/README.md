@@ -18,10 +18,6 @@ source ~/.zshrc
 ### ***SAVE***
 
 ``` bash
-lis
-```
-
-``` bash
 lis save
 ```
 
