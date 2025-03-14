@@ -18,7 +18,7 @@
 # <tic_counts>
 # увеличивать после каждого запуска или пуша
 
-LIS_VERSION="0.lignigno.1.0"
+LIS_VERSION="0.lignigno.1.1"
 LIS_TMPL_README="./templates/README.md"
 LIS_TMPL_UPDATE="./templates/code/update.sh"
 LIS_MAIN_README="../README.md"
