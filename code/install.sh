@@ -1,10 +1,10 @@
 #!/bin/bash
 
-SAVE_URL=""
-LOGIN=""
-PASSWORD=""
-EMAIL=""
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
+LIS_SAVE_URL=""
+LIS_LOGIN=""
+LIS_PASSWORD=""
+LIS_EMAIL=""
+LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
@@ -15,34 +15,34 @@ get_variables() {
 	printf " \033[0m(\033[1;38;2;255;255;0mContinue when created\033[0m)"
 	read
 
-	while [ -z "$SAVE_URL" ]; do
+	while [ -z "$LIS_SAVE_URL" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
 		printf "2) Enter your repository link:\n"
 		printf "\033[1;38;2;255;0;128m"
-		read SAVE_URL
-		if [ -z "$SAVE_URL" ]; then
+		read LIS_SAVE_URL
+		if [ -z "$LIS_SAVE_URL" ]; then
 			printf "\033[1;38;2;255;0;0m"
 			printf "Repository link cannot be empty, please enter it.\n"
 		fi
 	done
 
-	while [ -z "$LOGIN" ]; do
+	while [ -z "$LIS_LOGIN" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
 		printf "3) Enter your \033[38;2;0;255;0mlogin\033[38;2;0;255;255m:\n"
 		printf "\033[1;38;2;255;0;128m"
-		read LOGIN
-		if [ -z "$LOGIN" ]; then
+		read LIS_LOGIN
+		if [ -z "$LIS_LOGIN" ]; then
 			printf "\033[1;38;2;255;0;0m"
 			printf "Login cannot be empty, please enter it.\n"
 		fi
 	done
 
-	while [ -z "$PASSWORD" ]; do
+	while [ -z "$LIS_PASSWORD" ]; do
 		printf "\033[1;38;2;0;255;255m\n"
 		printf "4) Enter your \033[38;2;255;0;0mpassword\033[38;2;0;255;255m:\n"
 		printf "\033[1;38;2;255;0;128m"
-		read -s PASSWORD
-		if [ -z "$PASSWORD" ]; then
+		read -s LIS_PASSWORD
+		if [ -z "$LIS_PASSWORD" ]; then
 			printf "\033[1;38;2;255;0;0m"
 			printf "Password cannot be empty, please enter it.\n"
 		fi
@@ -57,9 +57,9 @@ get_variables() {
 	printf "\033[1;38;2;255;0;0m"
 	printf " !!!\n"
 	printf "\033[1;38;2;255;0;128m"
-	read EMAIL
-	if [ -z "$EMAIL" ]; then
-		EMAIL="silentbob@mail.com"
+	read LIS_EMAIL
+	if [ -z "$LIS_EMAIL" ]; then
+		LIS_EMAIL="silentbob@mail.com"
 	fi
 	printf "\033[0m"
 }
@@ -69,34 +69,33 @@ get_variables() {
 #                                                                                        |
 
 prepare_memory_repository() {
-	FINAL_URL="https://$LOGIN:$PASSWORD@${SAVE_URL#https://}"
+	FINAL_URL="https://$LIS_LOGIN:$LIS_PASSWORD@${LIS_SAVE_URL#https://}"
 
-	rm -rf /tmp/$LOGIN
-	git clone $FINAL_URL /tmp/$LOGIN
+	rm -rf /tmp/$LIS_LOGIN
+	git clone $FINAL_URL /tmp/$LIS_LOGIN
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
 		exit 1
 	fi
 
-	cd /tmp/$LOGIN
-	rm -rf $(ls -Ap /tmp/$LOGIN | grep -v '.git/')
-	# echo $(ls -A) | xargs rm -rf
+	cd /tmp/$LIS_LOGIN
+	rm -rf $(ls -Ap /tmp/$LIS_LOGIN | grep -v '.git/')
 
-	cd $SCRIPT_DIR/templates
-	echo $(ls -A) /tmp/$LOGIN | xargs cp -rf
+	cd $LIS_SCRIPT_DIR/templates
+	echo $(ls -A) /tmp/$LIS_LOGIN | xargs cp -rf
 
-	# git add . && git commit -m "try" && git push 
+	sed -i '' "s|<user url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/README.md
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/README.md
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/deploy.sh
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/lis.sh
+	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/save.sh
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/save.sh
+	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/update.sh
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/update.sh
 
-	sed -i '' "s|<user url>|$SAVE_URL|g" /tmp/$LOGIN/README.md
-	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/README.md
-	sed -i '' "s|<email>|$EMAIL|g"       /tmp/$LOGIN/code/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/deploy.sh
-	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/save.sh
-	sed -i '' "s|<user>|$LOGIN|g"        /tmp/$LOGIN/code/lis.sh
-
-	/tmp/$LOGIN/code/deploy.sh
-	/tmp/$LOGIN/code/save.sh
+	/tmp/$LIS_LOGIN/code/deploy.sh
+	/tmp/$LIS_LOGIN/code/save.sh
 
 	if [ $? -ne 0 ]; then
 		printf "\n\033[1;38;2;255;0;0mERROR\033[0m\n\n"
@@ -106,8 +105,8 @@ prepare_memory_repository() {
 
 # _______________________________________________________________________________MAIN CODE
 
-cd $SCRIPT_DIR
-REP=$(git rev-parse --show-toplevel)
+cd $LIS_SCRIPT_DIR
+LIS_REP=$(git rev-parse --show-toplevel)
 trap 'rm -rf "$REP"' EXIT
 
 get_variables

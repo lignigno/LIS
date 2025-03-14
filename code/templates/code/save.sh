@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# START
-# END
+# v1
 
-PROJECT_DIR=/tmp/<user>
-SAVE_DIR=$PROJECT_DIR/save
+LIS_USER="<user>"
+LIS_EMAIL="<email>"
 
-DIRS=($(find ~ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+LIS_PROJECT_DIR="/tmp/$LIS_USER"
+LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
+
+LIS_DIRS=($(find ~ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
 save_home_files() {
-	echo $(ls -Ap | grep -v /) $SAVE_DIR | xargs cp -rf
+	echo $(ls -Ap | grep -v /) $LIS_SAVE_DIR | xargs cp -rf
 }
 
 #                                                                                        |
@@ -19,15 +21,15 @@ save_home_files() {
 #                                                                                        |
 
 save_dirs() {
-	for dir in "${DIRS[@]}"; do
+	for dir in "${LIS_DIRS[@]}"; do
 		if [[ "$dir" == "Library" ]]; then
-			rsync -aq --delete --exclude='Trial' ~/$dir $SAVE_DIR
+			rsync -aq --delete --exclude='Trial' ~/$dir $LIS_SAVE_DIR
 			continue
 		elif [[ "$dir" == "Public" || "$dir" == ".Trash" ]]; then
 			continue
 		fi
 
-		rsync -aq --delete ~/$dir $SAVE_DIR
+		rsync -aq --delete ~/$dir $LIS_SAVE_DIR
 	done
 }
 
@@ -36,10 +38,10 @@ save_dirs() {
 #                                                                                        |
 
 send_to_repository() {
-	cd $PROJECT_DIR
+	cd $LIS_PROJECT_DIR
 
-	git config --global user.email "<email>"
-	git config --global user.name "<user>"
+	git config --global user.email "$LIS_EMAIL"
+	git config --global user.name "$LIS_USER"
 
 	echo "=====[ SAVING ]=====" 
 	git add . > /tmp/null
@@ -57,8 +59,8 @@ send_to_repository() {
 
 # _______________________________________________________________________________MAIN CODE
 
-if [ ! -d $SAVE_DIR ]; then
-	mkdir $SAVE_DIR
+if [ ! -d $LIS_SAVE_DIR ]; then
+	mkdir $LIS_SAVE_DIR
 fi
 
 cd ~
