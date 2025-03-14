@@ -3,4 +3,5 @@
 # v1
 
 lis save
-echo logout
+# osascript -e 'tell application "System Events" to log out'
+echo "just logout"
