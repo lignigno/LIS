@@ -90,6 +90,7 @@ prepare_memory_repository() {
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/deploy.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/help.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/lis.sh
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/logout.sh
 	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/save.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/save.sh
 	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/update.sh
