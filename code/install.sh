@@ -107,7 +107,7 @@ prepare_memory_repository() {
 
 cd $LIS_SCRIPT_DIR
 LIS_REP=$(git rev-parse --show-toplevel)
-trap 'rm -rf "$REP"' EXIT
+trap 'rm -rf "$LIS_REP"' EXIT
 
 get_variables
 prepare_memory_repository
