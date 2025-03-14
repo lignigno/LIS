@@ -27,7 +27,7 @@ if [ $# -gt 0 ]; then
 	else
 		printf "\033[1;38;2;255;0;0m\n"
 		printf "incorrect command :\033[0m $1\n"
-		printf "exist commands :\n\n"
+		printf "existing commands :\n\n"
 
 		for cmd in "${LIS_EXIST_COMMANDS[@]}"; do
 			printf " --> $cmd\n"
