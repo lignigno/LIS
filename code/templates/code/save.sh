@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# v1
-
 LIS_USER="<user>"
 LIS_EMAIL="<email>"
 

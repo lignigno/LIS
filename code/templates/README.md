@@ -1,4 +1,3 @@
-
 # **How it use**
 
 <br>
@@ -40,4 +39,4 @@ lis update
 
 <br>
 
-v1
+INSTALLED VERSION : 0.lignigno.0.1

@@ -79,6 +79,7 @@ prepare_memory_repository() {
 		exit 1
 	fi
 
+	# TODO : maybe good replace .git on \.git
 	cd /tmp/$LIS_LOGIN
 	rm -rf $(ls -Ap /tmp/$LIS_LOGIN | grep -v '.git/')
 

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# v1
-
 LIS_USER="<user>"
 
 # <for_run_update>

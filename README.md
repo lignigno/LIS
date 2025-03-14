@@ -1,11 +1,11 @@
-# **LIS**
+<h1 align="center">LIQUORICE IGNIGNOKT SAVER</h1>
 
 ![header][Header]
 
 <br>
 <br>
 
-## **How Install**
+## ***HOW INSTALL***
 
 1. Copy the command.
 
@@ -23,11 +23,16 @@ source ~/.zshrc
 <br>
 <br>
 
-## **Usage example**
+## ***USAGE EXAMPLE***
 
 <div align="center"> Will be soon </div>
 <div align="center">(maybe, but you better not get your hopes up)</div>
 
+<br>
+<br>
 
+## ***SPECIFICATION***
+
+VERSION : 0.lignigno.0.1
 
 [Header]: ~for_readme/header.png
