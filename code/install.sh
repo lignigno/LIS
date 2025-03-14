@@ -88,6 +88,7 @@ prepare_memory_repository() {
 	sed -i '' "s|<user url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/README.md
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/README.md
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/deploy.sh
+	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/help.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/lis.sh
 	sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/save.sh
 	sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/save.sh
