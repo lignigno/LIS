@@ -6,7 +6,7 @@ LIS_EMAIL="<email>"
 LIS_PROJECT_DIR="/tmp/$LIS_USER"
 LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
 
-LIS_DIRS=($(find ~ -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+LIS_DIRS=($(find ~/Desktop -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
