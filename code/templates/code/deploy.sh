@@ -2,7 +2,7 @@
 
 LIS_USER="<user>"
 
-/tmp/$LIS_LOGIN/code/update.sh
+/tmp/$LIS_USER/code/update.sh
 
 rsync -aq --delete /tmp/$LIS_USER/save ~
 
