@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_VERSION="0.19-home"
+LIS_VERSION="0.20-hmm"
 LIS_USER="<user>"
 LIS_EMAIL="<email>"
 LIS_SAVE_URL="<user_url>"

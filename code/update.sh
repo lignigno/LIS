@@ -13,7 +13,7 @@
 # END                                                                               NOTE |
 # ---------------------------------------------------------------------------------------|
 
-LIS_VERSION="0.19-home"
+LIS_VERSION="0.20-hmm"
 LIS_REC_KEYS=("user" "email" "user_url")
 LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
