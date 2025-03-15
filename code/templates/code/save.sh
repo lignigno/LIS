@@ -4,14 +4,15 @@ LIS_USER="<user>"
 LIS_EMAIL="<email>"
 
 LIS_PROJECT_DIR="/tmp/$LIS_USER"
-LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
+LIS_DST_DIR=$LIS_PROJECT_DIR/save
+LIS_SRC_DIR=~/Desktop
 
-LIS_DIRS=($(find ~/Desktop -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+LIS_DIRS=($(find $LIS_SRC_DIR -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
 save_home_files() {
-	echo $(ls -Ap | grep -v /) $LIS_SAVE_DIR | xargs cp -rf
+	echo $(ls -Ap | grep -v /) $LIS_DST_DIR | xargs cp -rf
 }
 
 #                                                                                        |
@@ -26,13 +27,13 @@ save_dirs() {
 								--exclude='Metadata' \
 								--exclude='Containers' \
 								--exclude='Application Support' \
-								~/$dir $LIS_SAVE_DIR
+								$LIS_SRC_DIR/$dir $LIS_DST_DIR
 			continue
 		elif [[ "$dir" == "Public" || "$dir" == ".Trash" || "$dir" == "Library" ]]; then
 			continue
 		fi
 
-		rsync -aq --delete ~/$dir $LIS_SAVE_DIR
+		rsync -aq --delete $LIS_SRC_DIR/$dir $LIS_DST_DIR
 	done
 }
 
@@ -62,11 +63,11 @@ send_to_repository() {
 
 # _______________________________________________________________________________MAIN CODE
 
-if [ ! -d $LIS_SAVE_DIR ]; then
-	mkdir $LIS_SAVE_DIR
+if [ ! -d $LIS_DST_DIR ]; then
+	mkdir $LIS_DST_DIR
 fi
 
-cd ~
+cd $LIS_SRC_DIR
 
 save_home_files
 save_dirs
