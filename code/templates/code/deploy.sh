@@ -5,7 +5,7 @@ LIS_PROJECT_DIR=/tmp/$LIS_USER
 LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
 LIS_DST_DIR=~
 
-rsync -aq \
+rsync -av \
       --delete \
       --delete-excluded --exclude='.Trash' \
                         --exclude='Library' \
