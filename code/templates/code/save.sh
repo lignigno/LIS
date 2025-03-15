@@ -7,7 +7,8 @@ LIS_PROJECT_DIR="/tmp/$LIS_USER"
 LIS_DST_DIR=$LIS_PROJECT_DIR/save
 LIS_SRC_DIR=~/Desktop
 
-LIS_DIRS=($(find $LIS_SRC_DIR -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+# LIS_DIRS=($(find $LIS_SRC_DIR -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
+LIS_DIRS=($(ls -A $LIS_SRC_DIR))
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
@@ -20,20 +21,20 @@ save_home_files() {
 #                                                                                        |
 
 save_dirs() {
-	for dir in "${LIS_DIRS[@]}"; do
-		if [[ "$dir" == "Library" ]]; then
+	for item in "${LIS_DIRS[@]}"; do
+		if [[ "$item" == "Library" ]]; then
 			rsync -aq --delete 	--exclude='Trial' \
 								--exclude='Caches' \
 								--exclude='Metadata' \
 								--exclude='Containers' \
 								--exclude='Application Support' \
-								$LIS_SRC_DIR/$dir $LIS_DST_DIR
+								$LIS_SRC_DIR/$item $LIS_DST_DIR
 			continue
-		elif [[ "$dir" == "Public" || "$dir" == ".Trash" || "$dir" == "Library" ]]; then
+		elif [[ "$item" == "Public" || "$item" == ".Trash" || "$item" == "Library" ]]; then
 			continue
 		fi
 
-		rsync -aq --delete $LIS_SRC_DIR/$dir $LIS_DST_DIR
+		rsync -aq --delete $LIS_SRC_DIR/$item $LIS_DST_DIR
 	done
 }
 
@@ -69,9 +70,8 @@ fi
 
 cd $LIS_SRC_DIR
 
-save_home_files
+# save_home_files
 save_dirs
-
 send_to_repository
 
 printf "\033[1;38;2;0;255;255m\n"
