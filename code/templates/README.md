@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.12
+INSTALLED VERSION : 0.13-slash

@@ -72,7 +72,7 @@ cd $LIS_SRC_DIR
 
 # save_home_files
 # save_dirs
-rsync -av --delete $LIS_SRC_DIR $LIS_DST_DIR
+rsync -av --delete $LIS_SRC_DIR/ $LIS_DST_DIR/
 send_to_repository
 
 printf "\033[1;38;2;0;255;255m\n"
