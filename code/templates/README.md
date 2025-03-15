@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.21
+INSTALLED VERSION : 0.22-debug
