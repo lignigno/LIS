@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.lignigno.1.0
+INSTALLED VERSION : 0.4

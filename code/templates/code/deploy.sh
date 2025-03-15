@@ -2,7 +2,7 @@
 
 LIS_USER="<user>"
 
-# <for_run_update>
+/tmp/$LIS_LOGIN/code/update.sh
 
 echo "alias lis=\"/tmp/$LIS_USER/code/lis.sh\"" >> ~/.zshrc
 

@@ -33,6 +33,6 @@ source ~/.zshrc
 
 ## ***SPECIFICATION***
 
-VERSION : 0.lignigno.1.0
+VERSION : 0.4
 
 [Header]: ~for_readme/header.png

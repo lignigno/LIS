@@ -13,7 +13,7 @@
 # END                                                                               NOTE |
 # ---------------------------------------------------------------------------------------|
 
-LIS_VERSION="0.lignigno.1.0"
+LIS_VERSION="0.4"
 LIS_REC_KEYS=("user" "email" "user_url")
 LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
@@ -36,8 +36,6 @@ LIS_LOGIN=$2
 LIS_EMAIL=$3
 LIS_SAVE_URL=$4
 
-# rm -rf $(ls -Ap /tmp/$LIS_LOGIN/| grep -v '.git/' | grep -v 'save')
-
 cd $LIS_SCRIPT_DIR/templates
 echo $(ls -A) /tmp/$LIS_LOGIN/ | xargs cp -rf
 
@@ -49,12 +47,13 @@ sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/lis.sh
 sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/logout.sh
 sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/save.sh
 sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/save.sh
+sed -i '' "s|<user_url>|$LIS_SAVE_URL|g" /tmp/$LIS_LOGIN/code/update.sh
 sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/update.sh
 sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/update.sh
 
 # ______________________________________________________________________________END HUECOD
 
-printf "=============\n"
+printf "===================\n"
 printf "\n"
 printf "                /|\n"
 printf "               / /\n"
@@ -64,7 +63,7 @@ printf "           \__/\n"
 printf "\n"
 printf "  Version : $LIS_VERSION\n"
 printf "\n"
-printf "=============\n"
+printf "===================\n"
 
 # for arg in "$@"; do
 # 	key=$(echo "$arg" | cut -d: -f1 | tr -d '"')
