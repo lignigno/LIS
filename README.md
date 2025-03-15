@@ -33,6 +33,6 @@ source ~/.zshrc
 
 ## ***SPECIFICATION***
 
-VERSION : 0.15
+VERSION : 0.16
 
 [Header]: ~for_readme/header.png
