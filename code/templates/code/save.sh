@@ -5,7 +5,7 @@ LIS_EMAIL="<email>"
 
 LIS_PROJECT_DIR="/tmp/$LIS_USER"
 LIS_DST_DIR=$LIS_PROJECT_DIR/save
-LIS_SRC_DIR=~/Desktop
+LIS_SRC_DIR=~
 
 # LIS_DIRS=($(find $LIS_SRC_DIR -mindepth 1 -maxdepth 1 -type d -exec basename {} \;))
 LIS_DIRS=($(ls -A $LIS_SRC_DIR))
@@ -70,9 +70,10 @@ fi
 
 cd $LIS_SRC_DIR
 
-# save_home_files
-# save_dirs
-rsync -av --delete $LIS_SRC_DIR/ $LIS_DST_DIR/
+rsync -aq --delete --exclude='.Trash' \
+                   --exclude='Library' \
+                   --exclude='Public' \
+                   $LIS_SRC_DIR/ $LIS_DST_DIR/
 send_to_repository
 
 printf "\033[1;38;2;0;255;255m\n"

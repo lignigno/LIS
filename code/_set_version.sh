@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_VERSION="0.13-slash"
+LIS_VERSION="0.14-one-rsync"
 LIS_TMPL_README="./templates/README.md"
 LIS_TMPL_UPDATE="./templates/code/update.sh"
 LIS_MAIN_README="../README.md"

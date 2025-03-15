@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.13-slash
+INSTALLED VERSION : 0.14-one-rsync
