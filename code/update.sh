@@ -13,7 +13,7 @@
 # END                                                                               NOTE |
 # ---------------------------------------------------------------------------------------|
 
-LIS_VERSION="0.7"
+LIS_VERSION="0.8"
 LIS_REC_KEYS=("user" "email" "user_url")
 LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
@@ -52,6 +52,8 @@ sed -i '' "s|<email>|$LIS_EMAIL|g"       /tmp/$LIS_LOGIN/code/update.sh
 sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/update.sh
 
 # ______________________________________________________________________________END HUECOD
+
+/tmp/$LIS_LOGIN/code/save.sh
 
 printf "===================\n"
 printf "\n"
