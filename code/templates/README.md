@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.18-deploy
+INSTALLED VERSION : 0.19-home

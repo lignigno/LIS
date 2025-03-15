@@ -1,9 +1,9 @@
 #!/bin/bash
 
 LIS_USER="<user>"
-LIS_PROJECT_DIR="/tmp/$LIS_USER"
-LIS_SAVE_DIR="$LIS_PROJECT_DIR/save"
-LIS_DST_DIR="~"
+LIS_PROJECT_DIR=/tmp/$LIS_USER
+LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
+LIS_DST_DIR=~
 
 rsync -aq \
       --delete \
