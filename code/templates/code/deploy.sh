@@ -11,7 +11,7 @@ rsync -av \
       --exclude='.Trash' \
       --exclude='Library' \
       --exclude='Public' \
-      $LIS_SAVE_DIR/ $LIS_DST_DIR/ > /tmp/lilog
+      $LIS_SAVE_DIR/ $LIS_DST_DIR/ > /tmp/lilog1
 
 rsync -av \
       --delete \
@@ -20,7 +20,7 @@ rsync -av \
                         --exclude='Metadata' \
                         --exclude='Containers' \
                         --exclude='Application Support' \
-      $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/ > /tmp/lilog
+      $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/ > /tmp/lilog2
 
 /tmp/$LIS_USER/code/update.sh
 
