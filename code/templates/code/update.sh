@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_VERSION="0.14-one-rsync"
+LIS_VERSION="0.15"
 LIS_USER="<user>"
 LIS_EMAIL="<email>"
 LIS_SAVE_URL="<user_url>"

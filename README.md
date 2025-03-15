@@ -33,6 +33,6 @@ source ~/.zshrc
 
 ## ***SPECIFICATION***
 
-VERSION : 0.14-one-rsync
+VERSION : 0.15
 
 [Header]: ~for_readme/header.png

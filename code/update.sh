@@ -13,7 +13,7 @@
 # END                                                                               NOTE |
 # ---------------------------------------------------------------------------------------|
 
-LIS_VERSION="0.14-one-rsync"
+LIS_VERSION="0.15"
 LIS_REC_KEYS=("user" "email" "user_url")
 LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 

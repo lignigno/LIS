@@ -74,6 +74,12 @@ rsync -aq --delete --exclude='.Trash' \
                    --exclude='Library' \
                    --exclude='Public' \
                    $LIS_SRC_DIR/ $LIS_DST_DIR/
+rsync -aq --delete --exclude='Trial' \
+                   --exclude='Caches' \
+                   --exclude='Metadata' \
+                   --exclude='Containers' \
+                   --exclude='Application Support' \
+                   $LIS_SRC_DIR/Library $LIS_DST_DIR
 send_to_repository
 
 printf "\033[1;38;2;0;255;255m\n"
