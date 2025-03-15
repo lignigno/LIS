@@ -4,6 +4,8 @@ LIS_USER="<user>"
 
 /tmp/$LIS_LOGIN/code/update.sh
 
+
+
 echo "alias lis=\"/tmp/$LIS_USER/code/lis.sh\"" >> ~/.zshrc
 
 printf "\033[1;38;2;0;255;255m\n"

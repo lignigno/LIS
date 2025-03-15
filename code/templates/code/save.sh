@@ -20,7 +20,7 @@ save_home_files() {
 
 save_dirs() {
 	for dir in "${LIS_DIRS[@]}"; do
-		if [[ "$dir" == "Libraryasdf" ]]; then
+		if [[ "$dir" == "Library" ]]; then
 			rsync -aq --delete --exclude='Trial' --exclude='Caches' ~/$dir $LIS_SAVE_DIR
 			continue
 		elif [[ "$dir" == "Public" || "$dir" == ".Trash" || "$dir" == "Library" ]]; then
