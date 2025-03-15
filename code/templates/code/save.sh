@@ -35,16 +35,21 @@ if [ ! -d $LIS_DST_DIR ]; then
 	mkdir $LIS_DST_DIR
 fi
 
-rsync -aq --delete --exclude='.Trash' \
-                   --exclude='Library' \
-                   --exclude='Public' \
-                   $LIS_SRC_DIR/ $LIS_DST_DIR/
-rsync -aq --delete --exclude='Trial' \
-                   --exclude='Caches' \
-                   --exclude='Metadata' \
-                   --exclude='Containers' \
-                   --exclude='Application Support' \
-                   $LIS_SRC_DIR/Library $LIS_DST_DIR
+rsync -aq \
+      --delete \
+      --exclude='.Trash' \
+      --exclude='Library' \
+      --exclude='Public' \
+      $LIS_SRC_DIR/ $LIS_DST_DIR/
+
+rsync -aq \
+      --delete \
+      --exclude='Trial' \
+      --exclude='Caches' \
+      --exclude='Metadata' \
+      --exclude='Containers' \
+      --exclude='Application Support' \
+      $LIS_SRC_DIR/Library $LIS_DST_DIR
 
 send_to_repository
 
