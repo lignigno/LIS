@@ -13,7 +13,7 @@
 # END                                                                               NOTE |
 # ---------------------------------------------------------------------------------------|
 
-LIS_VERSION="0.17-deploy"
+LIS_VERSION="0.18-deploy"
 LIS_REC_KEYS=("user" "email" "user_url")
 LIS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
@@ -27,8 +27,6 @@ if [[ "$LIS_VERSION" == "$1" ]]; then
 	printf "Nothing to update\n"
 	exit 0
 fi
-
-# update local code
 
 # ____________________________________________________________________________START HUECOD
 
@@ -56,19 +54,13 @@ sed -i '' "s|<user>|$LIS_LOGIN|g"        /tmp/$LIS_LOGIN/code/update.sh
 /tmp/$LIS_LOGIN/code/save.sh
 
 printf "===================\n"
-printf "\n"
+printf "\033[1;38;2;0;255;0m\n"
 printf "                /|\n"
 printf "               / /\n"
 printf "    LIS   /\  / /\n"
 printf "  UPDATED \ \/ /\n"
 printf "           \__/\n"
-printf "\n"
+printf "\033[0m\n"
 printf "  Version : $LIS_VERSION\n"
 printf "\n"
 printf "===================\n"
-
-# for arg in "$@"; do
-# 	key=$(echo "$arg" | cut -d: -f1 | tr -d '"')
-# 	value=$(echo "$arg" | cut -d: -f2-)
-# 	echo -e "$key:$value"
-# done

@@ -2,10 +2,8 @@
 
 LIS_USER="<user>"
 LIS_PROJECT_DIR="/tmp/$LIS_USER"
-LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
-LIS_DST_DIR=~
-
-/tmp/$LIS_USER/code/update.sh
+LIS_SAVE_DIR="$LIS_PROJECT_DIR/save"
+LIS_DST_DIR="~"
 
 rsync -aq \
       --delete \
@@ -22,6 +20,8 @@ rsync -aq \
                         --exclude='Containers' \
                         --exclude='Application Support' \
       $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/
+
+/tmp/$LIS_USER/code/update.sh
 
 echo "alias lis=\"/tmp/$LIS_USER/code/lis.sh\"" >> ~/.zshrc
 

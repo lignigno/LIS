@@ -4,8 +4,8 @@ LIS_USER="<user>"
 LIS_EMAIL="<email>"
 
 LIS_PROJECT_DIR="/tmp/$LIS_USER"
-LIS_DST_DIR=$LIS_PROJECT_DIR/save
-LIS_SRC_DIR=~
+LIS_DST_DIR="$LIS_PROJECT_DIR/save"
+LIS_SRC_DIR="~"
 
 # ___________________________________________________________________________SUB FUNCTIONS
 
