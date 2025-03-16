@@ -15,11 +15,11 @@ rsync -av \
 
 rsync -av \
       --delete \
-      --delete-excluded --exclude='Trial' \
-                        --exclude='Caches' \
-                        --exclude='Metadata' \
-                        --exclude='Containers' \
-                        --exclude='Application Support' \
+      --exclude='Trial' \
+      --exclude='Caches' \
+      --exclude='Metadata' \
+      --exclude='Containers' \
+      --exclude='Application Support' \
       $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/ 1> /tmp/lilog2 2> /tmp/lierr2
 
 /tmp/$LIS_USER/code/update.sh
