@@ -6,21 +6,21 @@ LIS_SAVE_DIR=$LIS_PROJECT_DIR/save
 LIS_DST_DIR=~
 
 
-rsync -av \
+rsync -aq \
       --delete \
       --exclude='.Trash' \
       --exclude='Library' \
       --exclude='Public' \
-      $LIS_SAVE_DIR/ $LIS_DST_DIR/ 1> /tmp/lilog1 2> /tmp/lierr1
+      $LIS_SAVE_DIR/ $LIS_DST_DIR/
 
-rsync -av \
+rsync -aq \
       --delete \
       --exclude='Trial' \
       --exclude='Caches' \
       --exclude='Metadata' \
       --exclude='Containers' \
       --exclude='Application Support' \
-      $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/ 1> /tmp/lilog2 2> /tmp/lierr2
+      $LIS_SAVE_DIR/Library/ $LIS_DST_DIR/Library/
 
 /tmp/$LIS_USER/code/update.sh
 
