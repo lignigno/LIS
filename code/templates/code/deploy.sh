@@ -25,8 +25,6 @@ rsync -aq \
 
 /tmp/$LIS_USER/code/update.sh
 
-echo "alias lis=\"/tmp/$LIS_USER/code/lis.sh\"" >> ~/.zshrc
-
 killall -HUP cfprefsd
 killall cfprefsd
 killall Finder
