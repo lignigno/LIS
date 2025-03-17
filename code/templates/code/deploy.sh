@@ -11,6 +11,7 @@ rsync -aq \
       --exclude='.Trash' \
       --exclude='Library' \
       --exclude='Public' \
+      --exclude='go' \
       $LIS_SAVE_DIR/ $LIS_DST_DIR/
 
 rsync -aq \
@@ -25,6 +26,10 @@ rsync -aq \
 /tmp/$LIS_USER/code/update.sh
 
 echo "alias lis=\"/tmp/$LIS_USER/code/lis.sh\"" >> ~/.zshrc
+
+killall -HUP cfprefsd
+killall cfprefsd
+killall Finder
 
 printf "\033[1;38;2;0;255;255m\n"
 printf "LIS deployed"

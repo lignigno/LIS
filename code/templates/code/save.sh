@@ -40,6 +40,7 @@ rsync -aq \
       --exclude='.Trash' \
       --exclude='Library' \
       --exclude='Public' \
+      --exclude='go' \
       $LIS_SRC_DIR/ $LIS_DST_DIR/
 
 rsync -aq \
