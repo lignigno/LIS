@@ -1,6 +1,7 @@
 #!/bin/bash
 
-LIS_SCRIPTS_DIR="/tmp/<user>/code"
+LIS_PROJECT_DIR="/tmp/<user>"
 
-$LIS_SCRIPTS_DIR/save.sh
+$LIS_PROJECT_DIR/code/save.sh
+rm -rf $LIS_PROJECT_DIR
 osascript -e 'tell application "System Events" to log out'
