@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_VERSION="0.29-fix"
+LIS_VERSION="0.30-testing"
 LIS_SCRIPTS_DIR="/tmp/<user>/code"
 
 LIS_EXIST_COMMANDS=( $(find "$LIS_SCRIPTS_DIR" -type f -name "*.sh" ! -name "deploy.sh" ! -name "lis.sh" -exec basename {} .sh \;) )
