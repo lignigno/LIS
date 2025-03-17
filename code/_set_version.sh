@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIS_VERSION="0.30-testing"
+LIS_VERSION="1.0"
 LIS_TMPL_README="./templates/README.md"
 LIS_TMPL_UPDATE="./templates/code/update.sh"
 LIS_TMPL_HELP="./templates/code/help.sh"
