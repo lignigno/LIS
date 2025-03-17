@@ -39,4 +39,4 @@ lis update
 
 <br>
 
-INSTALLED VERSION : 0.25-maybe
+INSTALLED VERSION : 0.26-testing
